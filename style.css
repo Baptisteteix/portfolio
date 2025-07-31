@@ -14,34 +14,71 @@ body {
 }
 
 /* Navigation */
+/* Menu burger */
 nav {
+  background-color: #9356DC;
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #9356DC;
   z-index: 1000;
-  padding: 5px 0;
+  padding: 10px 0;
 }
 
-nav ul {
+nav .menu-icon {
+  display: none;
+  font-size: 28px;
+  color: white;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+/* Menu classique (desktop) */
+nav ul.menu {
   display: flex;
   justify-content: center;
   list-style: none;
 }
 
-nav ul li {
+nav ul.menu li {
   margin: 0 15px;
 }
 
-nav ul li a {
+nav ul.menu a {
   color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
-nav ul li a:hover {
-  text-decoration: underline;
+/* Responsive menu */
+@media (max-width: 768px) {
+  nav .menu-icon {
+    display: block;
+  }
+
+  nav ul.menu {
+    flex-direction: column;
+    align-items: center;
+    background-color: #9356DC;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+
+  #menu-toggle:checked + .menu-icon + ul.menu {
+    display: flex;
+  }
+
+  nav ul.menu li {
+    margin: 10px 0;
+  }
 }
+
 
 /* Header */
 header {
